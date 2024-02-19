@@ -5,6 +5,7 @@ import (
 
 	"github.com/anil1226/go-gRPC/internal/db"
 	"github.com/anil1226/go-gRPC/internal/rocket"
+	"github.com/anil1226/go-gRPC/internal/transport/grpc"
 )
 
 func main() {
@@ -22,6 +23,10 @@ func Run() error {
 		return err
 	}
 	serv := rocket.New(db)
-	_ = serv
+	handler := grpc.New(serv)
+	err = handler.Serve()
+	if err != nil {
+		return err
+	}
 	return nil
 }

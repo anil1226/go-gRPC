@@ -3,10 +3,10 @@
 package rocket
 
 type Rocket struct {
-	ID      string
-	Name    string
-	Type    string
-	Flights int
+	ID      string `json:"id"`
+	Name    string `json:"name"`
+	Type    string `json:"type"`
+	Flights int    `json:"flights"`
 }
 
 type Service struct {
